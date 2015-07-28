@@ -2,30 +2,15 @@ import googlemaps
 import csv
 import simplejson
 import urllib
-
 from geopy.distance import great_circle
 
-
 MAX_DISTANCE = 9999999
-
-def googleDistance(sourceCoordinates, destinationCoordinates):
-	url = "http://maps.googleapis.com/maps/api/distancematrix/json?origins={0}&destinations={1}&mode=walking&language=en-EN&sensor=false".format(str(sourceCoordinates),str(destinationCoordinates))
-	result= simplejson.load(urllib.urlopen(url))
-	print result
-	try:
-		resulting_distance = result['rows'][0]['elements'][0]['distance']['text']
-		resulting_distance = float(resulting_distance[0:-3])
-	except:
-		resulting_distance = MAX_DISTANCE
-	print "calculo distancia entre " + str(sourceCoordinates) + " y " + str(destinationCoordinates) + " que dio " + str(resulting_distance)
-	return resulting_distance
 
 def geopyDistance(sourceCoordinates, destinationCoordinates):
 	try:
 		resulting_distance = great_circle(sourceCoordinates,destinationCoordinates).meters
 	except:
 		resulting_distance = MAX_DISTANCE
-	print "calculo distancia entre " + str(sourceCoordinates) + " y " + str(destinationCoordinates) + " que dio " + str(resulting_distance)
 	return resulting_distance
 
 def minimo(vector, propiedad, output):
@@ -106,19 +91,4 @@ def main():
 
 	output.close()
 
-def test():
-	t_file = open("apitoken")
-	for l in file:
-		token = l
-	client = googlemaps.Client(token)
-
-	terreno = (-34.553169236899983, -58.455626942116282)
-	estacion = (-34.6357419968607, -58.3989485118757)
-	response = client.directions(str(terreno), str(estacion), mode="walking", units="metric")
-	print response
-	
-	# print calculateDistance(terreno, estacion)
-
-
-# test()
 main()
