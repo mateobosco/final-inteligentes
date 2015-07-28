@@ -52,19 +52,19 @@ def get_propiedades():
 	return get_vector('datos/precio-terrenos-2014.csv', 1, 0)
 
 def get_hospitales():
-	return get_vector('datos/hospitales.csv', 17, 16)
+	return get_vector('datos/hospitales.csv', 13, 12)
 
 def get_metrobus():
-	return get_vector('datos/metrobus-estaciones.csv', 7, 6)
+	return get_vector('datos/metrobus-estaciones.csv', 6, 5)
 
 def get_universidades():
-	return get_vector('datos/universidades.csv', 13, 12)
+	return get_vector('datos/universidades.csv', 1, 0)
 
 def get_escuelas_publicas():
-	return get_vector('datos/establecimientos-publicos.csv', 21, 20)
+	return get_vector('datos/establecimientos-publicos.csv', 7, 6)
 
 def get_escuelas_privadas():
-	return get_vector('datos/establecimientos-privados.csv', 21, 20)
+	return get_vector('datos/establecimientos-privados.csv', 7, 6)
 
 def get_centros_de_salud():
 	return get_vector('datos/centros-salud-no-dependientes-GCBA.csv', 1, 0)
